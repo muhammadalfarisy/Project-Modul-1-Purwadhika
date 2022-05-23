@@ -22,7 +22,7 @@ def menu_awal():
         print("Pilihan Menu Aplikasi : ")
         print("\t\t\t\t\t1. Daftar Data Persediaan Barang")
         print("\t\t\t\t\t2. Menambah Data Persediaan Barang")
-        print("\t\t\t\t\t3. Update Data Persediaan Barang Dagang")
+        print("\t\t\t\t\t3. Update Data Persediaan Barang")
         print("\t\t\t\t\t4. Menghapus Data Persediaan Barang")
         print("\t\t\t\t\t5. exit")
         
@@ -52,7 +52,7 @@ def menu_daftar_persediaan_barang():
     b = 0
     while b < 1:
         print("\n\t\t\t\t\t1. Data Persediaan (Seluruh) ")
-        print("\t\t\t\t\t2. Data Perpesediaan (Tertentu) ")
+        print("\t\t\t\t\t2. Data Persediaan (Tertentu) ")
         print("\t\t\t\t\t3. Kembali Ke Menu Utama\n")
         tanya = str(input("Masukan Pilihan Menu [1-3] : ").upper())
         if tanya == '1':
@@ -96,7 +96,7 @@ def menu_membuat_data_baru():
     e = 0
     while e < 1:
         print("\n\t\t\t\t\t1. Membuat Data Persediaan Baru")
-        print("\t\t\t\t\t2. Menu awal\n")
+        print("\t\t\t\t\t2. Menu Utama\n")
         tanya = str(input("Masukan Pilihan Menu [1-2] : ").upper())
         if tanya == '1' :
             simpan_data_baru()
@@ -123,13 +123,13 @@ def simpan_data_baru():
             print("------------------------------------------------------------------------------------------------------------")
             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
             print("------------------------------------------------------------------------------------------------------------")
-            print(" {}\t| {}\t| {}\t  | {}\t| {}\t\t| {}\t| {}\t".format(1,input_kode_produk,input_nama_produk,input_merk_produk,input_warna_produk,input_nama_produk,input_harga_produk))
+            print(" {}\t| {}\t| {}\t  | {}\t| {}\t\t| {}\t| {}\t".format(1,input_kode_produk,input_nama_produk,input_merk_produk,input_warna_produk,input_stock_produk,input_harga_produk))
             g = 0
             while g < 1:
                 tanya = str(input("\n\tApakah Anda Ingin Menyimpan Data di Atas ? (Y/T) : ").upper())
                 if tanya == "Y":
                     stock_Gudang.append({'KODE': input_kode_produk,'NAMA PRODUK': input_nama_produk,'MERK': input_merk_produk,'WARNA': input_warna_produk,'STOCK': input_stock_produk,'HARGA': input_harga_produk})
-                    print("\n\tDaftar Berhasil Di Simpan")
+                    print("\n\tData Berhasil Di Simpan")
                     break
                 elif tanya == "T":
                     print("\nData Batal Di Simpan")
@@ -138,12 +138,12 @@ def simpan_data_baru():
                     print("\n**Pilihan Yang Anda Masukan Salah**")
 
 
-# ### 3. Update Data Persediaan Barang Dagang
+# ### 3. Update Data Persediaan Barang
 def menu_update_data():
     h = 0
     while h < 1:
         print("\n\t\t\t\t\t1. Mengedit Data Persediaan")
-        print("\t\t\t\t\t2. Menu awal\n")
+        print("\t\t\t\t\t2. Menu Utama\n")
         tanya = str(input("Masukan Pilihan Menu [1-2] : ").upper())
         if tanya == '1' :
             updatedataterbaru()
@@ -166,7 +166,7 @@ def updatedataterbaru():
                     print("\t\t\t\t\t4. Update Warna Barang")
                     print("\t\t\t\t\t5. Update Stock Barang")
                     print("\t\t\t\t\t6. Update Harga Barang")
-                    print("\t\t\t\t\t7. Kembali Ke Menu Utama")
+                    print("\t\t\t\t\t7. Kembali Ke Menu Sebelumnya")
                     
                     tanya = str(input("Masukan Pilihan Menu [1-7]: "))
                     
@@ -177,8 +177,11 @@ def updatedataterbaru():
                             print("\n**KODE BERHASIL DI UPDATE**\n")
                             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
                             daftar_data_persediaan(i)
-                        elif konfirmasi == "N":
-                            break
+                        elif konfirmasi == "T":
+                            continue
+                        else:
+                            print("\n**Pilihan Yang Anda Masukan Salah**")
+                            
                                          
                     elif tanya == '2':
                         konfirmasi = str(input("Apakah anda Yakin Mengupdate Data (Y/T) : ").upper())
@@ -187,8 +190,8 @@ def updatedataterbaru():
                             print("\n**KODE BERHASIL DI UPDATE**\n")
                             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
                             daftar_data_persediaan(i)
-                        elif konfirmasi == "N":
-                            break   
+                        elif konfirmasi == "T":
+                            continue   
                         else:
                             print("\n**Pilihan Yang Anda Masukan Salah**")
                             
@@ -199,10 +202,11 @@ def updatedataterbaru():
                             print("\n**KODE BERHASIL DI UPDATE**\n")
                             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
                             daftar_data_persediaan(i)
-                        elif konfirmasi == "N":
-                            break   
+                        elif konfirmasi == "T":
+                            continue   
                         else:
                             print("\n**Pilihan Yang Anda Masukan Salah**")
+                            
                             
                     elif tanya == '4':
                         konfirmasi = str(input("Apakah anda Yakin Mengupdate Data (Y/T) : ").upper())
@@ -211,10 +215,11 @@ def updatedataterbaru():
                             print("\n**KODE BERHASIL DI UPDATE**\n")
                             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
                             daftar_data_persediaan(i)
-                        elif konfirmasi == "N":
-                            break   
+                        elif konfirmasi == "T":
+                            continue   
                         else:
                             print("\n**Pilihan Yang Anda Masukan Salah**")  
+                            
                             
                     elif tanya == '5':
                         konfirmasi = str(input("Apakah anda Yakin Mengupdate Data (Y/T) : ").upper())
@@ -223,8 +228,8 @@ def updatedataterbaru():
                             print("\n**KODE BERHASIL DI UPDATE**\n")
                             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
                             daftar_data_persediaan(i)
-                        elif konfirmasi == "N":
-                            break   
+                        elif konfirmasi == "T":
+                            continue   
                         else:
                             print("\n**Pilihan Yang Anda Masukan Salah**")
                             
@@ -235,16 +240,17 @@ def updatedataterbaru():
                             print("\n**KODE BERHASIL DI UPDATE**\n")
                             print(" Nomor\t| KODE\t \t| NAMA PRODUK\t | MERK\t \t| WARNA\t\t| STOCK\t\t| HARGA\t")
                             daftar_data_persediaan(i)
-                        elif konfirmasi == "N":
+                        elif konfirmasi == "T":
                             break   
                         else:
-                            print("\n**Pilihan Yang Anda Masukan Salah**")                              
+                            print("\n**Pilihan Yang Anda Masukan Salah**")                        
      
                     elif tanya == '7':
                         break
         
             elif i == len(stock_Gudang)-1:
                 print("**Data Yang Anda Cari Tidak Ada**")
+                break
                     
                 
 
@@ -274,12 +280,14 @@ def hapus_data():
                 if konfirmasi == "Y":
                     del stock_Gudang[k]
                     print(f"\n**DATA KODE {katakunci} BERHASIL DI HAPUS**")
+                    break
                     
                 elif konfirmasi == "T" and konfirmasi != "Y":
                     print("\n**Data Batal Di Hapus**")
                     break
                 else:
                     print("\n**Pilihan Yang Anda Masukan Salah**")
+                    break
                 
         else:
             print("Data Yang Anda Cari Tidak Ada")
