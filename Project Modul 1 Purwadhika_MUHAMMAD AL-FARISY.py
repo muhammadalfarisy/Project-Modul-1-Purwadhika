@@ -24,7 +24,7 @@ def menu_awal():
         print("\t\t\t\t\t2. Menambah Data Persediaan Barang")
         print("\t\t\t\t\t3. Update Data Persediaan Barang")
         print("\t\t\t\t\t4. Menghapus Data Persediaan Barang")
-        print("\t\t\t\t\t5. exit")
+        print("\t\t\t\t\t5. Exit")
         
         menu_input = str(input("Masukan Pilihan Anda [1-5] : ").upper())
 
@@ -73,7 +73,7 @@ def seluruh_data_persediaan():
             daftar_data_persediaan(c)
             continue
     else :
-        print("\n**Pilihan Yang Anda Masukan Salah**")
+        print("\n**Tidak Ada Data*")
 
 def data_tertentu():
     katakunci = str(input("Masukan KODE PRODUK : ").upper())
@@ -246,14 +246,15 @@ def updatedataterbaru():
                             print("\n**Pilihan Yang Anda Masukan Salah**")                        
      
                     elif tanya == '7':
+                        # print(" ")
                         break
+                break
         
             elif i == len(stock_Gudang)-1:
                 print("**Data Yang Anda Cari Tidak Ada**")
                 break
                     
                 
-
 ### 4. Menghapus Data Persediaan Barang
 def menu_menghapus_data():
     j = 0
