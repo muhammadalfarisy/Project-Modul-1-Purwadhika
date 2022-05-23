@@ -246,7 +246,6 @@ def updatedataterbaru():
                             print("\n**Pilihan Yang Anda Masukan Salah**")                        
      
                     elif tanya == '7':
-                        # print(" ")
                         break
                 break
         
